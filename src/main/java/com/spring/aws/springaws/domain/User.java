@@ -26,6 +26,16 @@ import lombok.Setter;
  * Table(Class)
  * Columns(Attributes)
  * One registry by object
+ * 
+ * 
+ * Serialization
+ * It consists of converting an object into a sequence of bytes for
+ * be persisted on disk or networked.
+ * 
+ * De serialization
+ * Inverse process to serialization, which consists of converting a
+ * series of bytes for an object.
+ * 
  * @author j.a.vasconcelos
  *
  */
