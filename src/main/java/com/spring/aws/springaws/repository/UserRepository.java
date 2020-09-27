@@ -13,6 +13,7 @@ import com.spring.aws.springaws.domain.enums.Role;
 
 /**
  * This class represent user repository in the system
+ * 
  * @author j.a.vasconcelos
  *
  */
@@ -20,17 +21,35 @@ import com.spring.aws.springaws.domain.enums.Role;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	/**
+	 * Find user by name
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public User getByName(String name);
+
+	/**
+	 * Find user by email
+	 *
+	 * @param email
+	 * @return
+	 */
+	public User getByEmail(String email);
+
+	/**
 	 * Find user by email and password
+	 * 
 	 * @param email
 	 * @param password
 	 * @return User
 	 */
 	@Query("SELECT u FROM USER u WHERE email = ?1 AND password = ?2")
 	public Optional<User> login(String email, String password);
-	
+
 	/**
 	 * Update role by User
-	 * @param id - id user
+	 * 
+	 * @param id   - id user
 	 * @param role - role
 	 * @return
 	 */
@@ -38,9 +57,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Modifying
 	@Query("UPDATE USER SET role = ?2 WHERE id = ?1")
 	public int updateRole(Long id, Role role);
-	
+
 	/**
 	 * Find user by email.
+	 * 
 	 * @param email
 	 * @return
 	 */
