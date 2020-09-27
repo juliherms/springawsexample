@@ -1,7 +1,9 @@
 package com.spring.aws.springaws.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,6 +27,7 @@ import lombok.Setter;
 
 /**
  * This class responsible to represent PO Request in the system.
+ * 
  * @author j.a.vasconcelos
  *
  */
@@ -43,7 +47,7 @@ public class Request implements Serializable {
 	@Column(length = 75, nullable = false)
 	private String subject;
 
-	//field type text
+	// field type text
 	@Column(columnDefinition = "text")
 	private String description;
 
@@ -58,5 +62,8 @@ public class Request implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "owner_id", nullable = false)
 	private User owner;
+
+	@OneToMany(mappedBy = "request")
+	private List<RequestStage> stages = new ArrayList<RequestStage>();
 
 }
