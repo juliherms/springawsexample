@@ -25,7 +25,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 * @param password
 	 * @return User
 	 */
-	@Query("SELECT u FROM user u WHERE email = ?1 AND password = ?2")
+	@Query("SELECT u FROM USER u WHERE email = ?1 AND password = ?2")
 	public Optional<User> login(String email, String password);
 	
 	/**
@@ -36,7 +36,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 */
 	@Transactional(readOnly = false)
 	@Modifying
-	@Query("UPDATE user SET role = ?2 WHERE id = ?1")
+	@Query("UPDATE USER SET role = ?2 WHERE id = ?1")
 	public int updateRole(Long id, Role role);
 	
 	/**
