@@ -22,6 +22,10 @@ import lombok.Setter;
 
 /**
  * This class represents entity user in the system
+ * JPA is specification for persistence in objects for database.
+ * Table(Class)
+ * Columns(Attributes)
+ * One registry by object
  * @author j.a.vasconcelos
  *
  */
