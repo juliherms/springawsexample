@@ -43,6 +43,7 @@ public class Request implements Serializable {
 	@Column(length = 75, nullable = false)
 	private String subject;
 
+	//field type text
 	@Column(columnDefinition = "text")
 	private String description;
 
