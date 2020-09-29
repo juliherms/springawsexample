@@ -22,6 +22,6 @@ public interface RequestStageRepository extends JpaRepository<RequestStage, Long
 	 * @param id
 	 * @return
 	 */
-	public List<RequestStage> findAlByRequestId(Long id);
+	public List<RequestStage> findAllByRequestId(Long id);
 
 }
